@@ -95,7 +95,7 @@ public class Digraph {
 	 * Deletes an arc
 	 * @param u origin of the arc to delete
 	 * @param v destination of the arc to delete
-	 * @return a new Digraph resulting of the (u,v) deeletion
+	 * @return a new {@link Digraph} resulting of the (u,v) deeletion
 	 */
 	public Digraph deletion(int u, int v) {
 		BitSet delAdjMatrix = (BitSet) adjMatrix.clone();
@@ -108,7 +108,7 @@ public class Digraph {
 	 * Contracts an arc using the Chung-Graham method
 	 * @param u origin of the arc to contract
 	 * @param v destination of the arc to contract
-	 * @return a new Digraph resulting of the (u,v) contraction
+	 * @return a new {@link Digraph} resulting of the (u,v) contraction
 	 */
 	public Digraph contraction(int u, int v) {
 		BitSet conAdjMatrix = new BitSet((n-1)*(n-1));
@@ -134,7 +134,7 @@ public class Digraph {
 	}
 	
 	/**
-	 * You can see a visual representation of the graph by coping the output to http://www.webgraphviz.com/ 
+	 * For a visual representation of the digraph, paste the output to <a href="http://www.webgraphviz.com/">www.webgraphviz.com</a> 
 	 */
 	public void print() {
 		System.out.println("digraph D {");
