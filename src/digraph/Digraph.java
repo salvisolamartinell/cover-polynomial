@@ -134,7 +134,7 @@ public class Digraph {
 	}
 	
 	/**
-	 * For a visual representation of the digraph, paste the output to <a href="http://www.webgraphviz.com/" target="_blank">www.webgraphviz.com</a> 
+	 * For a visual representation of the digraph, paste the output to <a href="http://www.webgraphviz.com/" target="_parent">www.webgraphviz.com</a> 
 	 */
 	public void print() {
 		System.out.println("digraph D {");
