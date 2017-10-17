@@ -15,7 +15,7 @@ public class DigraphGenerator implements Iterator<BitSet> {
 	@Override
 	public boolean hasNext() {
 		// TODO Auto-generated method stub
-		return false;
+		return hasNext;
 	}
 
 	@Override
