@@ -3,7 +3,7 @@ package digraph;
 import java.util.BitSet;
 
 /**
- * Enumerated digraph
+ * Directed graph
  */
 public class Digraph {
 	private final int n;
@@ -60,6 +60,10 @@ public class Digraph {
 		return new Digraph(n, canonicAdjMatrix);
 	}
 	
+	/**
+	 * Computes the cycle-path covers of the digraph by using the deletion-contraction recursion
+	 * @return array with the number of cycle-path covers with i paths and j cycles
+	 */
 	public int[][] pathCycleCovers() {
 		int[][] coefs = new int[n+1][n+1];
 		if (adjMatrix.isEmpty()) {
@@ -87,13 +91,25 @@ public class Digraph {
 		return coefs;
 	}
 
-	private Digraph deletion(int u, int v) {
+	/**
+	 * Deletes an arc
+	 * @param u origin of the arc to delete
+	 * @param v destination of the arc to delete
+	 * @return a new Digraph resulting of the (u,v) deeletion
+	 */
+	public Digraph deletion(int u, int v) {
 		BitSet delAdjMatrix = (BitSet) adjMatrix.clone();
 		delAdjMatrix.clear(u*n + v);
 		Digraph d_del = new Digraph(n, delAdjMatrix);
 		return d_del;
 	}
 	
+	/**
+	 * Contracts an arc using the Chung-Graham method
+	 * @param u origin of the arc to contract
+	 * @param v destination of the arc to contract
+	 * @return a new Digraph resulting of the (u,v) contraction
+	 */
 	public Digraph contraction(int u, int v) {
 		BitSet conAdjMatrix = new BitSet((n-1)*(n-1));
 		for (int i = 0; i < n; ++i) {
@@ -108,6 +124,7 @@ public class Digraph {
 		return d_con;
 	}
 	
+	// Computes the new index of a vertex i after a (u,v) contraction
 	private static int newVertex(int u, int v, int i) {
 		if (i < v) return i;
 		if (i > v) return i - 1;
@@ -116,6 +133,9 @@ public class Digraph {
 		throw new RuntimeException();
 	}
 	
+	/**
+	 * You can see a visual representation of the graph by coping the output to http://www.webgraphviz.com/ 
+	 */
 	public void print() {
 		System.out.println("digraph D {");
 		for (int i = 0; i < n; ++i) {
