@@ -1,19 +1,17 @@
 package generator;
 
+import java.util.BitSet;
 import java.util.Iterator;
 
-public class DigraphGenerator implements Iterator<Long> {
+/**
+ * @TODO by vertices, edges or reading from file?
+ * Iterator to generate digraphs
+ */
+public class DigraphGenerator implements Iterator<BitSet> {
 
-	private final int dimension;
-	private long bitmap = 0L;
-	private int pos = 0;
+	private BitSet bitset = new BitSet();
 	private boolean hasNext = true;
 	
-	public DigraphGenerator(int dimension) {
-		super();
-		this.dimension = dimension;
-	}
-
 	@Override
 	public boolean hasNext() {
 		// TODO Auto-generated method stub
@@ -21,10 +19,10 @@ public class DigraphGenerator implements Iterator<Long> {
 	}
 
 	@Override
-	public Long next() {
-		Long nextBitmap = bitmap;
+	public BitSet next() {
+		BitSet nextBitSet = bitset;
 		
-		return nextBitmap;
+		return nextBitSet;
 	}
 
 }
