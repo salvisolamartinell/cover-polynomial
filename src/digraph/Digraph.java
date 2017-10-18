@@ -77,12 +77,10 @@ public class Digraph {
 			for (int i = 0; i <= n; ++i) {
 				for (int j = 0; j <= n; j++) {
 					coefs[i][j] += delCoefs[i][j];
-					if (i<n && j < n) {
-						if (u != v && i < n) {
-							if (j < n) coefs[i][j] += conCoefs[i][j];
-						} else {
-							if (j > 0) coefs[i][j] += conCoefs[i][j-1];
-						}
+					if (u != v) {
+						if (i < n && j < n) coefs[i][j] += conCoefs[i][j];
+					} else {
+						if (i < n && j > 0) coefs[i][j] += conCoefs[i][j-1];
 					}
 				}
 			}
