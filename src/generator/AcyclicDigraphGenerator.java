@@ -25,7 +25,7 @@ public class AcyclicDigraphGenerator implements Iterator<Digraph> {
 	
 	/**
 	 * @param n the number of vertices that the generated DAGs will have
-	 * @throws FileNotFoundException
+	 * @throws FileNotFoundException if the dag{n}.txt file doesn't exist in the resources folder
 	 */
 	public AcyclicDigraphGenerator(int n) throws FileNotFoundException {
 		this.n = n;
