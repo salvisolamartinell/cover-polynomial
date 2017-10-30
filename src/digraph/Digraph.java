@@ -144,4 +144,16 @@ public class Digraph {
 		}
 		System.out.println("}");
 	}
+	
+	/**
+	 * Prints the adjacency matrix 
+	 */
+	public void printAdjMatrix() {
+		for (int i = 0; i < n; ++i) {
+			for (int j = 0; j < n; ++j) {
+				System.out.print(adjMatrix.get(i*n + j) ? '1' : '0');
+			}
+			 System.out.println();
+		}
+	}
 }
