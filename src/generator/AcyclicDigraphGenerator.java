@@ -12,9 +12,9 @@ import digraph.Digraph;
 
 /**
  * Iterator to generate acyclic digraphs for a given number of vertices
- * reading from txt files that can be found in the Acyclic graphs section at
+ * reading from txt files such as the ones that can be found in the Acyclic graphs section at
  * <a href="http://users.cecs.anu.edu.au/~bdm/data/digraphs.html" target="_parent">http://users.cecs.anu.edu.au/~bdm/data/digraphs.html</a>.
- * Download and save the txt files into the resources folder of this project for this to work.
+ * Create such files in the resources folder of this project for this iterator to work.
  */
 public class AcyclicDigraphGenerator implements Iterator<Digraph> {
 
@@ -26,7 +26,6 @@ public class AcyclicDigraphGenerator implements Iterator<Digraph> {
 	public AcyclicDigraphGenerator(int n) throws FileNotFoundException {
 		this.n = n;
 		in = new BufferedReader(new FileReader("resources\\dag"+n+".txt"));
-		
 	}
 
 	@Override
