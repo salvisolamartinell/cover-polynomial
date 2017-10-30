@@ -20,22 +20,8 @@ public class CEquivalentExample2 {
 		d_2.addArc(1, 3);
 		d_2.print();
 		
-		int[][] pcc1 = d_1.pathCycleCovers();
-		for (int i = 0; i <= n; i++) {
-			for (int j = 0; j <= n; j++) {
-				System.out.print(pcc1[i][j] + "\t");
-			}
-			System.out.println();
-		}
-		
+		d_1.pathCycleCovers().print();
 		System.out.println();
-		
-		int[][] pcc2 = d_2.pathCycleCovers();
-		for (int i = 0; i <= n; i++) {
-			for (int j = 0; j <= n; j++) {
-				System.out.print(pcc2[i][j] + "\t");
-			}
-			System.out.println();
-		}
+		d_2.pathCycleCovers().print();
 	}
 }

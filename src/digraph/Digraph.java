@@ -61,10 +61,10 @@ public class Digraph {
 	}
 	
 	/**
-	 * Computes the cycle-path covers of the digraph by using the deletion-contraction recursion
-	 * @return array with the number of cycle-path covers with i paths and j cycles
+	 * Computes the path-cycle covers of the digraph by using the deletion-contraction recursion
+	 * @return array with the number of path-cycle covers with i paths and j cycles
 	 */
-	public int[][] pathCycleCovers() {
+	public PathCycleCovers pathCycleCovers() {
 		int[][] coefs = new int[n+1][n+1];
 		if (adjMatrix.isEmpty()) {
 			coefs[n][0] = 1;
@@ -72,8 +72,8 @@ public class Digraph {
 			int arc = adjMatrix.previousSetBit(n*n - 1);
 			int u = arc/n;
 			int v = arc%n;
-			int[][] delCoefs = deletion(u,v).pathCycleCovers();
-			int[][] conCoefs = contraction(u,v).pathCycleCovers();
+			int[][] delCoefs = deletion(u,v).pathCycleCovers().getCoefs();
+			int[][] conCoefs = contraction(u,v).pathCycleCovers().getCoefs();
 			for (int i = 0; i <= n; ++i) {
 				for (int j = 0; j <= n; j++) {
 					coefs[i][j] += delCoefs[i][j];
@@ -86,7 +86,7 @@ public class Digraph {
 			}
 			
 		}
-		return coefs;
+		return new PathCycleCovers(coefs);
 	}
 
 	/**

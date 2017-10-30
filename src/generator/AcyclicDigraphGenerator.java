@@ -11,7 +11,7 @@ import java.util.NoSuchElementException;
 import digraph.Digraph;
 
 /**
- * Iterator to generate acyclic digraphs for a given number of vertices
+ * Iterator to generate directed acyclic graphs (DAGs) for a given number of vertices
  * reading from txt files such as the ones that can be found in the Acyclic graphs section at
  * <a href="http://users.cecs.anu.edu.au/~bdm/data/digraphs.html" target="_parent">http://users.cecs.anu.edu.au/~bdm/data/digraphs.html</a>.
  * Create such files in the resources folder of this project for this iterator to work.
@@ -23,6 +23,10 @@ public class AcyclicDigraphGenerator implements Iterator<Digraph> {
 	private String nextLine;
 	private boolean nextLinePrepared = false;
 	
+	/**
+	 * @param n the number of vertices that the generated DAGs will have
+	 * @throws FileNotFoundException
+	 */
 	public AcyclicDigraphGenerator(int n) throws FileNotFoundException {
 		this.n = n;
 		in = new BufferedReader(new FileReader("resources\\dag"+n+".txt"));
