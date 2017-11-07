@@ -11,10 +11,10 @@ public class CoverPolynomial {
 	}
 	
 	public void print() {
-		System.out.print("Cover polynomial coefs:");
+		System.out.println("Cover polynomial coefs:");
 		int size = coefs.length;
-		for (int i = 0; i <= size; i++) {
-			for (int j = 0; j <= size; j++) {
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size; j++) {
 				System.out.print(coefs[i][j] + "\t");
 			}
 			System.out.println();
