@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 import digraph.Digraph;
 import digraph.PathCycleCovers;
@@ -15,7 +16,7 @@ public class DAGs {
 		
 		Map<PathCycleCovers, Set<Digraph>> pccMap = new HashMap<>();
 		try {
-			AcyclicDigraphGenerator generator = new AcyclicDigraphGenerator(6);
+			AcyclicDigraphGenerator generator = new AcyclicDigraphGenerator(5);
 			while (generator.hasNext()) {
 				Digraph d = generator.next();
 				PathCycleCovers pcc = d.pathCycleCovers();
@@ -26,14 +27,24 @@ public class DAGs {
 			e.printStackTrace();
 		}
 		
+		Map<Integer, Integer> groupSizes = new TreeMap<>();
+		
 		pccMap.forEach((k,v) -> {
-			System.out.println("Quantitat: " + v.size());
-			v.forEach(g -> {
-				g.printAdjMatrix();
-				System.out.println("----");
-				
-			});
-			System.out.println();
+			groupSizes.putIfAbsent(v.size(), 0);
+			groupSizes.put(v.size(), groupSizes.get(v.size()) + 1);
+//			System.out.println("Quantitat: " + v.size());
+//			v.forEach(g -> {
+//				g.printAdjMatrix();
+//				System.out.println("----");
+//				
+//				//g.print();
+//				
+//			});
+//			System.out.println();
+		});
+		System.out.println("Resum:");
+		groupSizes.forEach((k,v) -> {
+			System.out.println(""+k+":\t"+v);
 		});
 	}
 }
