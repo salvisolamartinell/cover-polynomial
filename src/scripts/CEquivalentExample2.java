@@ -17,7 +17,7 @@ public class CEquivalentExample2 {
 		
 		Digraph d_2 = new Digraph(n);
 		for (int i = 0; i < n-1; ++i) d_2.addArc(i, i+1);
-		d_2.addArc(1, 3);
+		d_2.addArc(1, 4);
 		d_2.print();
 		
 		d_1.pathCycleCovers().print();
